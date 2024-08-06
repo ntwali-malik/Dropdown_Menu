@@ -1,22 +1,22 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
 
-  const handleMouseEnter = useCallback(() => {
+  const handleMouseEnter = () => {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
     setDropdownOpen(true);
-  }, [timeoutId]);
+  };
 
-  const handleMouseLeave = useCallback(() => {
+  const handleMouseLeave = () => {
     const id = setTimeout(() => {
       setDropdownOpen(false);
     }, 300); // Adjust the delay as needed
     setTimeoutId(id);
-  }, []);
+  };
 
   return (
     <nav className="bg-gray-900 p-4">
